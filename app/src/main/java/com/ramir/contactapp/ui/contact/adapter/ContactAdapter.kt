@@ -28,5 +28,9 @@ class ContactAdapter(
         notifyDataSetChanged()
     }
 
+    fun getListFromRecyclerView(): List<ContactInfo> {
+        return contactInfoList
+    }
+
 
 }

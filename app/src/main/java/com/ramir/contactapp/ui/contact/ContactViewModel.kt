@@ -18,4 +18,10 @@ class ContactViewModel @Inject constructor(
     init {
         _contact.value = contactProvider.getContactInfo()
     }
+
+    fun  add(name:String, lastName:String):Unit{
+        contactProvider.addContact(name,lastName)
+    }
+
+
 }

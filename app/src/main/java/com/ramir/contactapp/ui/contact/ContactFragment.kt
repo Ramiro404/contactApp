@@ -9,6 +9,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ramir.contactapp.R
 import com.ramir.contactapp.databinding.FragmentContactBinding
@@ -23,6 +25,7 @@ class ContactFragment : Fragment() {
     private var _binding: FragmentContactBinding? = null
     private val binding get() = _binding!!
     private lateinit var contactAdapter: ContactAdapter
+    private val args: ContactFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,8 +52,18 @@ class ContactFragment : Fragment() {
     }
 
     private fun initUI(){
+        if(args.name.isNotEmpty() && args.lastname.isNotEmpty()){
+            contactViewModel.add(args.name, args.lastname)
+            contactAdapter.notifyDataSetChanged()
+        }
         contactAdapter = ContactAdapter(onItemSelected = {
             //go to another activity
+            findNavController().navigate(
+                ContactFragmentDirections.actionContactFragment2ToDetailActivity(
+                    name = it.name,
+                    lastname = it.lastname
+                )
+            )
         })
 
         binding.rvContact.apply {
