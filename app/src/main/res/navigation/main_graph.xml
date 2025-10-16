@@ -3,13 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/mainActivity">
+    app:startDestination="@id/contactFragment2">
 
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.ramir.contactapp.ui.home.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" />
+
     <fragment
         android:id="@+id/formFragment2"
         android:name="com.ramir.contactapp.ui.form.FormFragment"

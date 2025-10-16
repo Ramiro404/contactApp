@@ -8,7 +8,9 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.navArgs
 import com.ramir.contactapp.R
 import com.ramir.contactapp.databinding.ActivityDetailBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DetailActivity : AppCompatActivity() {
     private  val args: DetailActivityArgs by navArgs()
     private var _binding: ActivityDetailBinding?= null

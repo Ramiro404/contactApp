@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/contactFragment"
+        android:id="@+id/contactFragment2"
         android:title="Contact"
         android:icon="@drawable/ic_contact"/>
 
     <item
-        android:id="@+id/formFragment"
+        android:id="@+id/formFragment2"
         android:title="Form"
         android:icon="@drawable/ic_form"/>
 </menu>

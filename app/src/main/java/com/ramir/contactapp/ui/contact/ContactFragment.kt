@@ -25,14 +25,15 @@ class ContactFragment : Fragment() {
     private var _binding: FragmentContactBinding? = null
     private val binding get() = _binding!!
     private lateinit var contactAdapter: ContactAdapter
-    private val args: ContactFragmentArgs by navArgs()
+    //private val args: ContactFragmentArgs? by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_contact, container, false)
+        _binding = FragmentContactBinding.inflate(layoutInflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -52,10 +53,10 @@ class ContactFragment : Fragment() {
     }
 
     private fun initUI(){
-        if(args.name.isNotEmpty() && args.lastname.isNotEmpty()){
+        /*if(!args.name.isNullOrEmpty() && !args.lastname.isNullOrEmpty()){
             contactViewModel.add(args.name, args.lastname)
             contactAdapter.notifyDataSetChanged()
-        }
+        }*/
         contactAdapter = ContactAdapter(onItemSelected = {
             //go to another activity
             findNavController().navigate(
